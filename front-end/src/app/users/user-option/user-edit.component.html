@@ -1,0 +1,56 @@
+<app-mainpage-header></app-mainpage-header>
+
+
+<div class="card">
+  <form *ngIf="user" class="user-form" [formGroup]="userForm">
+    <h2>Editer le profil : </h2>
+    <h3>{{firstName}} {{lastName}}</h3>
+    <label for="comment"> Commentaire :
+      <input class="input-custom" type="text" id="comment" [formControlName]="'comment'" placeholder=" Commentaire">
+    </label>
+    <br>
+    <div class="pathology">
+      <label for="pathology">
+        <select name="pathology-list" id="pathology" [formControlName]="'pathology'" (change)="setPathologyOption($event)" >
+          <option *ngFor="let currentPathology of PATHOLOGY_LIST"> {{ currentPathology }} </option>
+        </select>
+      </label>
+    </div>
+    <br>
+
+    <div class="options-list">
+      <div>
+
+        <input type="checkbox" id="restartQuestionCheckbox" name="Option" [checked]="this.restartQuestionOption"  [formControlName]="'restartQuestionOption'" (click)="onSelectRestartQuestionOption()">
+        <label for="restartQuestionCheckbox">Recommencer la question sans la réponse fausse</label>
+      </div>
+      <div>
+        <input type="checkbox" id="answerDisplayOptionCheckbox" name="Option" [checked]="this.answerDisplayOption" [formControlName]="'answerDisplayOption'" (click)="onSelectAnswerDisplayOption()">
+        <label for="answerDisplayOptionCheckbox">Afficher la réponse à chaque fin de question</label>
+      </div>
+      <div>
+        <input type="checkbox" id="displayScoreOptionCheckbox" name="Option" [checked]="this.displayScoreOption" [formControlName]="'displayScoreOption'" (click)="onSelectDisplayScoreOption()">
+        <label for="displayScoreOptionCheckbox">Afficher le score du quiz</label>
+      </div>
+      <div>
+        <input type="checkbox" id="pictureAnswerOptionCheckbox" name="Option" [checked]="this.pictureQuizOption" [formControlName]="'pictureQuizOption'" (click)="onSelectPictureQuizOption()">
+        <label for="pictureAnswerOptionCheckbox">Jouer uniquement à des quiz imagés</label>
+      </div>
+      <div class="limit-question">
+        <label for="limit-question">
+          <select name="pathology-list" id="limit-question" [value]="numberOfQuestionsMaxForPlayQuizOption" [formControlName]="'numberOfQuestionsMaxForPlayQuizOption'">
+            <option *ngFor="let number of LIMIT_QUESTION_PLAY_LIST">
+              {{ number }}
+            </option>
+          </select> Nombre de questions max
+        </label>
+      </div>
+    </div>
+
+    <button class="cancel-card" routerLink="/user-list">Annuler</button>
+    <button type="button" class="validate-card" (click)="validate()">Valider</button>
+
+  </form>
+</div>
+
+

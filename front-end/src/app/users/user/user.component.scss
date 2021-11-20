@@ -1,0 +1,47 @@
+@import '../../../styles/card.scss';
+
+.card{
+  text-align: center;
+  width: fit-content;
+  background: #89ca89;
+  border: 1px solid black;
+  border-radius: 20px;
+
+  .fa-user{
+    cursor: pointer;
+  }
+
+  .button-card-play{
+    cursor:pointer;
+    background-color: $headbandColor;
+    border: solid 1px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 0.5em;
+    outline: 0;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
+
+  .button-card-edit{
+    cursor:pointer;
+    background-color: $blueForButton;
+    border: solid 1px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 0.5em;
+    margin-left: 1rem;
+    outline: 0;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
+
+  .button-card-delete{
+    cursor:pointer;
+    background-color: $redForButton;
+    border: solid 1px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 0.5em;
+    outline: 0;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
+}

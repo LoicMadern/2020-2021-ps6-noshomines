@@ -1,0 +1,31 @@
+<app-mainpage-header></app-mainpage-header>
+
+<div class="card">
+  <h2>Créer un nouveau quiz</h2>
+  <form class="quiz-form" [formGroup]="quizForm">
+    <label for="name">
+      <input class="input-custom" type="text" id="name" [formControlName]="'name'" placeholder="Titre">
+    </label>
+    <br>
+    <label for="thème">
+      <input class="input-custom" type="text" id="thème" [formControlName]="'theme'" placeholder="Theme">
+    </label>
+    <div class="buttons">
+
+      <div *ngIf="notValidName || notValidTheme; then uselessButtonAddQuiz else usefulButtonAddQuiz"></div>
+      <ng-template #uselessButtonAddQuiz>
+        <div class="buttons">
+          <button type="submit" class="cancel-card"  routerLink="/gestion-quiz"> Annuler </button>
+          <button disabled type="submit" class="useless-card" (click)="addQuiz()">Créer</button>
+        </div>
+      </ng-template>
+
+      <ng-template #usefulButtonAddQuiz>
+        <div class="buttons">
+          <button type="submit" class="cancel-card"  routerLink="/gestion-quiz"> Annuler </button>
+          <button type="submit" class="submit-card" (click)="addQuiz()">Créer</button>
+        </div>
+      </ng-template>
+    </div>
+  </form>
+</div>

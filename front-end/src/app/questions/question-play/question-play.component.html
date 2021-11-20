@@ -1,0 +1,36 @@
+<div class="card">
+  <h2>
+    <br>
+    <i class="fab fa-leanpub"></i>
+     {{question.label}} :
+  </h2>
+  <div *ngIf="listIndexAnswerFalse.length !==0; then message"></div>
+    <ng-template #message>
+      <h3> Réessayez vous y êtes presque ! </h3>
+    </ng-template>
+  <div class="answers">
+    <div *ngIf="question.isPictureAnswer ==true; then quizPicture else quizText"></div>
+      <ng-template #quizPicture>
+        <button class ="answer-picture" *ngFor="let answer of question.answers; let i=index"
+                [class.selected]="answer === selectedAnswer"
+                [class.hide]="listIndexAnswerFalse.includes(i)"
+                (click)="onSelect(answer, i)">
+          <a href="{{answer.value}}"><span><img src="{{answer.value}}"></span></a>
+        </button>
+      </ng-template>
+      <ng-template #quizText>
+        <button class ="answer" *ngFor="let answer of question.answers; let i=index"
+                [class.selected]="answer === selectedAnswer"
+                [class.hide]="listIndexAnswerFalse.includes(i)"
+                (click)="onSelect(answer, i)">
+                {{answer.value}}
+        </button>
+      </ng-template>
+  </div>
+</div>
+
+
+
+
+<!--<h1>{{isGoodAnswerChecked}}</h1>-->
+<!--<br><br>{{questionPlayForm.getRawValue() | json}}-->

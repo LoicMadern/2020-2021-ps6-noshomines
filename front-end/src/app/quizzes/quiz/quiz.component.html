@@ -1,0 +1,35 @@
+<div class="card"  [ngClass]="{'imageCSS': quiz.isPictureQuiz === 'image', 'textCSS' : quiz.isPictureQuiz === 'text', 'mixteCSS' : quiz.isPictureQuiz === 'mixte' }">
+  <div class="rectangle" *ngIf="isAdmin==true; then admin else user"></div>
+  <ng-template #admin>
+    <h2>
+      <i class="fab fa-leanpub"></i>
+      {{quiz.name}}
+      <br>Thème : {{quiz.theme}}
+      <br>Question(s) : {{quiz.questions.length}}
+      <div class="rectangle" *ngIf="quiz.isPictureQuiz == 'image'">
+        <br>Réponse : Image
+      </div>
+      <div class="rectangle" *ngIf="quiz.isPictureQuiz == 'text'">
+        <br>Réponse : Texte
+      </div>
+      <div class="rectangle" *ngIf="quiz.isPictureQuiz == 'mixte'">
+        <br>Réponse : Mixte
+      </div>
+    </h2>
+    <div class="buttons">
+      <button class="button-card-delete" (click)="delete()"> Supprimer  </button>
+      <button class="button-card-edit" (click)="edit()">  Editer  </button>
+    </div>
+  </ng-template>
+
+  <ng-template #user>
+    <h2>
+      <i class="fab fa-leanpub"></i>
+      {{quiz.name}}
+      <br>Thème : {{quiz.theme}}
+    </h2>
+    <div class="buttons">
+      <button class="button-card-play" (click)="selectQuiz()">  Jouer  </button>
+    </div>
+  </ng-template>
+</div>

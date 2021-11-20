@@ -1,0 +1,57 @@
+@import '../../../styles/card.scss';
+
+.card{
+  text-align: center;
+  background-color: white;
+  .fa-user-circle{
+    color: $txtColor;
+    position: relative;
+    top: 2%;
+  }
+  h2{
+    color: $txtColor;
+  }
+  input{
+    background-color: $colorForTxtInput;
+    border: 2px solid $txtColor;
+    width: 200px;
+  }
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+
+  .submit-card{
+    margin: 10px;
+    cursor:pointer;
+    background-color: $greenForButton;
+    border: 2px solid #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
+  .cancel-card{
+    margin: 10px;
+    cursor:pointer;
+    background-color: $redForButton;
+    border: 2px solid #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
+
+  .useless-card{
+    margin: 10px;
+    cursor:pointer;
+    background-color:  #838383;
+    border: 2px solid #000000;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+  }
+}

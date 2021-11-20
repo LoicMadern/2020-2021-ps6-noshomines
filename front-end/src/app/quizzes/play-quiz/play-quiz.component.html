@@ -1,0 +1,66 @@
+<app-user-header></app-user-header>
+
+<div *ngIf="quiz && quiz.name != null">
+  <h1 class="quiz-name"> Quiz {{quiz.name}}</h1>
+  <div *ngIf="quiz && indexQuestion < numberOfQuestions">
+    <h1 class="num-question">Question n°{{indexQuestion + 1}}/{{numberOfQuestions}}</h1>
+  </div>
+</div>
+
+<div class="rectangle" *ngIf="quiz && indexQuestion < numberOfQuestions; then questionsBlock else noQuestionsBlock"></div>
+
+  <ng-template #questionsBlock>
+  <div *ngIf="printDisplay==false; then playBlock else displayBlock"></div>
+
+    <ng-template #playBlock>
+      <app-question-play [listIndexAnswerFalse]="listIndexAnswerFalse" [question]="quiz.questions[indexQuestion]" (indexAnswerChecked)="answerSelected($event)"></app-question-play>
+
+      <div *ngIf="indexAnswer==null; then uselessButton else usefulButton"></div>
+      <ng-template #uselessButton>
+        <div class="buttons">
+          <button type="submit" class="button-card-back" routerLink="/quiz-list">Quitter</button>
+          <button type="submit" class="button-card-useless">Valider</button>
+        </div>
+      </ng-template>
+
+      <ng-template #usefulButton>
+        <div class="buttons">
+          <button type="submit" class="button-card-back" routerLink="/quiz-list">Quitter</button>
+          <button type="submit" class="button-card-validate" (click)="validateQuestion()">Valider</button>
+        </div>
+      </ng-template>
+    </ng-template>
+
+    <ng-template #displayBlock>
+      <div *ngIf="user.answerDisplayOption">
+        <app-answer-display [isCorrect]="isCorrect" [question]="quiz.questions[indexQuestion]" ></app-answer-display>
+      </div>
+      <div *ngIf="indexQuestion==numberOfQuestions-1; then end else next"></div>
+      <ng-template #end>
+        <div class="buttons">
+          <button type="submit" class="button-card-next-question" (click)="nextQuestion()">Finir le quiz</button>
+        </div>
+      </ng-template>
+      <ng-template #next>
+        <div class="buttons">
+          <button type="submit" class="button-card-next-question" (click)="nextQuestion()">Prochaine question</button>
+        </div>
+      </ng-template>
+
+    </ng-template>
+
+    </ng-template>
+
+    <ng-template #noQuestionsBlock>
+      <div class="end-quiz">
+      <app-resume-display [displayScoreOption]="user.displayScoreOption" [quiz]="quiz" [score]="score" [numberOfQuestions]="numberOfQuestions"></app-resume-display>
+        <div class="buttons">
+          <button type="submit" class="button-card-restart" (click)="restartQuiz()">Recommencez le quiz</button>
+          <button type="submit" class="button-card-other-quiz" routerLink="/quiz-list">Jouer à un autre quiz</button>
+        </div>
+      </div>
+    </ng-template>
+
+
+
+

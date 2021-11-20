@@ -1,0 +1,13 @@
+<app-mainpage-header></app-mainpage-header>
+
+
+<div class="create-quiz-button"
+     routerLink="/quiz-form"><i class="fas fa-book fa-4x"></i>
+  <div class="create-user-text">CRÉER UN QUIZ</div>
+</div>
+
+<div class="quiz-list">
+  <div class="quiz" *ngFor="let quiz of quizList">
+    <app-quiz [quiz]="quiz"  [isAdmin]="true" (deleteQuiz)="deleteQuiz($event)" (editQuiz)="editQuiz($event)"></app-quiz>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="card" [class.background-picture]="question.isPictureAnswer">
+    <h2>
+        <i class="fab fa-leanpub"></i>
+        {{question.label}}
+    </h2>
+    <div class="answer" *ngFor="let answer of question.answers; let i=index">
+      <div *ngIf="question.isPictureAnswer==true;then questionPicture else questionText"></div>
+        <ng-template #questionPicture>
+          {{i}} - <a href="{{answer.value}}"><span><img src="{{answer.value}}"></span></a> <ng-container *ngIf="answer.isCorrect"><i class="far fa-check-square"></i></ng-container>
+        </ng-template>
+        <ng-template #questionText>
+          {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"><i class="far fa-check-square"></i></ng-container>
+        </ng-template>
+    </div>
+    <button class="button-card" (click)="delete()">Supprimer</button>
+</div>

@@ -1,0 +1,17 @@
+@import '../../../styles/card.scss';
+
+h2 {
+  color: $txtColor;
+  text-align: center;
+}
+
+.quiz-list {
+  position: relative;
+  left: 3vw;
+  width: 95vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+

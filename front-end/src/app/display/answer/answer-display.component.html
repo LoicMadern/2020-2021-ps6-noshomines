@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div *ngIf="isCorrect == true; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div class="correct">
+      <h2>Vous avez juste, Bravo !
+      </h2>
+    </div>
+  </ng-template>
+  <ng-template #elseBlock><div class="no-correct">
+    <h2>
+      Vous avez faux mais ce n'est pas grave
+    </h2>
+  </div>
+  </ng-template>
+  <div *ngIf="question.isPictureAnswer == true; then pictureDisplay else textDisplay"></div>
+    <ng-template #pictureDisplay>
+      <h3>La réponse à la question : "{{question.label}}" est : <br><br>
+        <a href="{{findAnswer()}}"><span><img src="{{findAnswer()}}"></span></a></h3>
+    </ng-template>
+    <ng-template #textDisplay>
+      <h2>La réponse à la question : "{{question.label}}" est : {{findAnswer()}}</h2>
+    </ng-template>
+</div>

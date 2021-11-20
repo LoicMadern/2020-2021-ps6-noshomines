@@ -1,0 +1,11 @@
+@import '../../../styles/card.scss';
+
+.question-list {
+  position: relative;
+  left: 5vw;
+  width: 84vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  z-index: 0;
+}

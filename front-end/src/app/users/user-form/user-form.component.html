@@ -1,0 +1,46 @@
+<app-mainpage-header></app-mainpage-header>
+
+<div class="card">
+  <i class="fas fa-user-circle fa-7x"></i>
+  <h2>Créer un nouvel utilisateur </h2>
+  <form class="user-form" [formGroup]="userForm">
+    <label for="firstName">
+      <input class="input-custom" type="text" id="firstName" [formControlName]="'firstName'" placeholder=" Prénom">
+    </label>
+    <br>
+    <label for="lastName">
+      <input class="input-custom" type="text" id="lastName" [formControlName]="'lastName'" placeholder=" Nom">
+    </label>
+    <br>
+    <label for="comment">
+      <input class="input-custom" type="text" id="comment" [formControlName]="'comment'" placeholder=" Commentaire">
+    </label>
+    <br>
+    <div class="pathology">
+      <label for="pathology">
+        <select name="pathology-list" id="pathology" [formControlName]="'pathology'">
+          <option value="">--Choisissez une pathologie--</option>
+          <option *ngFor="let currentPathology of PATHOLOGY_LIST" [value]="currentPathology">
+            {{ currentPathology }}
+          </option>
+        </select>
+      </label>
+    </div>
+    <br>
+
+    <div *ngIf="notValidName || notValidFirstName || notValidPathology || notValidComment; then uselessButtonAddUser else usefulButtonAddUser"></div>
+    <ng-template #uselessButtonAddUser>
+      <div class="buttons">
+        <button class="cancel-card" routerLink="/user-list">Annuler</button>
+        <button disabled type="submit" class="useless-card" (click)="addUser()" routerLink="/user-list">Créer</button>
+      </div>
+    </ng-template>
+
+    <ng-template #usefulButtonAddUser>
+      <div class="buttons">
+        <button class="cancel-card" routerLink="/user-list">Annuler</button>
+        <button type="submit" class="submit-card" (click)="addUser()" routerLink="/user-list">Créer</button>
+      </div>
+    </ng-template>
+  </form>
+</div>

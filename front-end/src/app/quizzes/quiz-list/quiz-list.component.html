@@ -1,0 +1,14 @@
+<app-user-header></app-user-header>
+
+<div *ngIf="user">
+
+  <h2> {{user.firstName}}  {{user.lastName}}</h2>
+
+  <div class="quiz-list">
+    <div class="quiz" *ngFor="let quiz of quizList">
+      <div *ngIf="(user.pictureQuizOption == true && quiz.isPictureQuiz != 'text') || user.pictureQuizOption == false">
+        <app-quiz [quiz]="quiz" [isAdmin]="false" (quizSelected)="quizSelected($event)"></app-quiz>
+      </div>
+    </div>
+  </div>
+</div>

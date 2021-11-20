@@ -1,0 +1,30 @@
+@import './styles/variables.scss';
+@import './styles/card.scss';
+
+/* You can add global styles to this file, and also import other style files */
+html {
+  font: 500 20px/32px Roboto, "DIN Alternate", sans-serif;
+}
+body {
+  background-color: $app-background-color;
+  /*h1{
+    font-size: medium;
+    position: absolute;
+    color: black;
+    margin: 10px;
+    z-index:1;
+  }*/
+  .headband{
+    h2{
+      color: $white;
+      text-align: center;
+      font: 500 6vh/0vh Roboto, "DIN Alternate", sans-serif;
+    }
+  }
+  img{
+    width: 230px;
+    height: auto;
+    pointer-events: none;
+    border: 0;
+  }
+}

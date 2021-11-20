@@ -1,0 +1,64 @@
+<div class="card">
+  <form class="quiz-form" [formGroup]="questionForm">
+    <label for="label">
+      Question<br>
+      <input class="input-custom" type="text" id="label" [formControlName]="'label'" placeholder="Question">
+    </label>
+    <br>
+    <div class="left">
+      <input type="checkbox" id="restartQuestionCheckbox" name="Option" [checked]="this.isPictureAnswer"  [formControlName]="'isPictureAnswer'" (click)="onSelect()">
+      <label for="restartQuestionCheckbox">Réponse en image</label>
+    </div>
+
+
+
+    <div class="answer" formArrayName="answers">
+      <div *ngFor="let address of answers.controls; let i=index">
+        <div class="answer-form" [formGroupName]="i">
+          <label>
+            Réponse
+            <div *ngIf="isPictureAnswer==true; then inputPicture else inputText"></div>
+            <ng-template #inputText>
+              <input type="text" [formControlName]="'value'" placeholder="Réponse">
+            </ng-template>
+            <ng-template #inputPicture>
+              <input type="text" [formControlName]="'value'" placeholder="copier l'adresse de l'image">
+            </ng-template>
+            <br>
+            Correcte
+            <input type="checkbox" [formControlName]="'isCorrect'" (click)="countGoodAnswer(i)">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="answers.controls.length >= 4; then uselessButton else usefulButton"></div>
+    <ng-template #uselessButton>
+      <div class="buttons">
+        <button disabled class="useless-card" (click)="addAnswer()">Ajouter une réponse</button>
+      </div>
+    </ng-template>
+
+    <ng-template #usefulButton>
+      <div class="buttons">
+        <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
+      </div>
+    </ng-template>
+
+    <div *ngIf="numberGoodAnswer != 1 || notValidValues || notValidLabel; then uselessButtonAddQuestion else usefulButtonAddQuestion"></div>
+    <ng-template #uselessButtonAddQuestion>
+      <div class="buttons">
+        <button disabled type="submit" class="useless-card" (click)="addQuestion()">Valider la question</button>
+      </div>
+    </ng-template>
+
+    <ng-template #usefulButtonAddQuestion>
+      <div class="buttons">
+        <button type="submit" class="submit-card" (click)="addQuestion()">Valider la question</button>
+      </div>
+    </ng-template>
+  </form>
+</div>
+
+<!-- Uncomment below to see your form structure and how it changes-->
+<!-- <br><br>{{quizForm.getRawValue() | json}} -->

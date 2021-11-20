@@ -1,0 +1,114 @@
+@import "../../../styles/variables";
+
+/**
+ Use :host to apply some style to your entire component #24c6dc, #514a9d
+ #0f0c29, #302b63, #24243e linear-gradient(to right,#302b63, #0f0c29, #302b63);
+ */
+:host {
+  color: $white;
+}
+
+.header {
+  ul{
+    list-style-type: none;
+    display: inline-block;
+  }
+
+  li{
+    display: inline;
+  }
+
+  li a:hover{
+    color: #000000;
+  }
+
+  li a{
+    color: #fffcfc;
+    padding-left: 2vw;
+    padding-right: 3vw;
+    text-decoration: none;
+  }
+
+  nav ul li {
+    display: inline-block;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 10px;
+  }
+
+  nav ul li a,
+  nav ul li a:after,
+  nav ul li a:before {
+    transition: all .2s;
+  }
+
+  nav.fill ul li a {
+    position: relative;
+  }
+
+  nav ul li a:hover {
+    color: #000000;
+  }
+
+  nav.fill ul li a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    background: #200;
+    height: 1px;
+  }
+
+  nav.fill ul li a {
+    transition: all 2s;
+  }
+
+  nav.fill ul li a:after {
+    text-align: center;
+    content: '-';
+    opacity: 0;
+  }
+  nav.fill ul li a:hover {
+    color: #000000;
+    z-index: 1;
+  }
+
+  nav.fill ul li a:hover:after {
+    z-index: -10;
+    animation: fill 1s forwards;
+    -webkit-animation: fill 1s forwards;
+    -moz-animation: fill 1s forwards;
+    opacity: 1;
+  }
+
+  @-webkit-keyframes fill {
+    0% {
+      width: 0;
+      height: 1px;
+    }
+    50% {
+      width: 100%;
+      height: 1px;
+    }
+    100% {
+      width: 100%;
+      height: 100%;
+      background: #000000;
+    }
+  }
+
+  display: block;
+  background: $headbandColor;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  justify-content: space-between;
+}

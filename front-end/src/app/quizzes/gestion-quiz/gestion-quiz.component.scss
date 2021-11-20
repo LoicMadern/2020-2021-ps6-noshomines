@@ -1,0 +1,38 @@
+@import '../../../styles/card.scss';
+
+.create-quiz-button{
+  position: relative;
+  width: fit-content;
+  top: 2vw;
+  left: 2vw;
+  cursor: pointer;
+  .create-user-text{
+    position: relative;
+    text-align: center;
+    font-size: small;
+  }
+  .fa-4x{
+    color: $txtColor;
+  }
+}
+
+.quiz-list {
+  position: relative;
+  left: 15vw;
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.button-card-back{
+  cursor:pointer;
+  background-color: $headbandColor;
+  border: solid 1px #000000;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5em 0.5em;
+  margin-left: 2rem;
+  outline: 0;
+  box-shadow: 0.2em 0.2em rgba(0, 0, 0, 0.5);
+}

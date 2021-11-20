@@ -1,0 +1,26 @@
+@import '../../../styles/card.scss';
+
+.create-user-button{
+  position: relative;
+  width: fit-content;
+  top: 2vw;
+  left: 2vw;
+  cursor: pointer;
+  .create-user-text{
+    position: relative;
+    text-align: center;
+    font-size: small;
+  }
+  .fa-4x{
+    color: $txtColor;
+  }
+}
+
+.user-list {
+  position: relative;
+  left: 15vw;
+  width: 84vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}

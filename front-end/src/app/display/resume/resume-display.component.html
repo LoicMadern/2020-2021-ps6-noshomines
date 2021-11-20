@@ -1,0 +1,21 @@
+<div class="card">
+  <div *ngIf="quiz">
+    <div *ngFor="let question of quiz.questions; let i=index" >
+      <div *ngIf="numberOfQuestions>i">
+      <h1 class="question"> Question {{i+1}}: {{question.label}} </h1>
+        <div *ngIf="question.isPictureAnswer==true; then pictureDisplay else textDisplay"></div>
+        <ng-template #pictureDisplay>
+          <h1 class="answer"> Réponse : <a href="{{findAnswer(i)}}"><span><img src="{{findAnswer(i)}}"></span></a></h1>
+        </ng-template>
+        <ng-template #textDisplay>
+          <h1 class="answer"> Réponse : {{findAnswer(i)}}</h1>
+        </ng-template>
+      </div>
+    </div>
+      <div *ngIf="displayScoreOption">
+      <h2>  Votre score est de {{score}}/{{numberOfQuestions}}</h2>
+    </div>
+  </div>
+</div>
+
+

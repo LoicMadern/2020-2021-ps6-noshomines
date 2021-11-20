@@ -1,0 +1,90 @@
+@import '../../../styles/card.scss';
+
+h2{
+  text-align: center;
+  color: $txtColor;
+  font-size: 2.5vw;
+  font-weight: 500;
+  line-height: 1;
+}
+
+h3{
+  text-align: center;
+  color: #cda11f;
+  font-size: 2.5vw;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.card{
+  background: $app-background-color;
+  border-radius: 1px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);
+  padding: 0 1em 1em 1em;
+
+  .answers{
+    text-align: center;
+    position: relative;
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .answer{
+      text-align: center;
+      color: white;
+      font-size: 2.5vw;
+      font-weight: 500;
+      margin-top: 1rem;
+      background: $headbandColor;
+      border-radius: 20px;
+      border: 3.5px solid #000000;
+      outline:0;
+      visibility: visible;
+    }
+
+    .answer-picture{
+      text-align: center;
+      font-size: 2.5vw;
+      font-weight: 500;
+      margin-top: 1rem;
+      border-radius: 20px;
+      background-color: white;
+      border: 3.5px solid #000000;
+      outline:0;
+      visibility: visible;
+    }
+
+    .answer-picture:hover{
+      cursor: pointer;
+      background: $cursorOnQuestion;
+      text-decoration:none;
+    }
+
+    .answer:hover {
+      cursor: pointer;
+      background: $cursorOnQuestion;
+      border-radius: 20px;
+      text-decoration:none;
+    }
+
+    .selected{
+      background: darkorange;
+    }
+
+    .hide{
+      visibility: hidden;
+    }
+  }
+}
+
+
+
+
+

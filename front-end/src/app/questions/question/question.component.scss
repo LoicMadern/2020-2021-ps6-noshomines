@@ -1,0 +1,25 @@
+@import '../../../styles/card.scss';
+
+
+.card{
+  text-align: center;
+  width: 300px;
+  background: #c1b0ee;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.background-picture{
+  background: #f5ea9f;
+}
+
+img{
+  width: 50px;
+  height: auto;
+  pointer-events: none;
+  border: 0;
+}
+
+.button-card{
+  background-color: $redForButton;
+}

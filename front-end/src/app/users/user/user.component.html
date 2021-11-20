@@ -1,0 +1,14 @@
+<div class="card">
+
+    <h2>
+      <i class="fas fa-user" (click)="selectUser()">
+        {{user.firstName}}
+        <br>
+        {{user.lastName}}
+      </i>
+    </h2>
+    <div class="buttons">
+      <button class="button-card-delete" (click)="delete()"> Supprimer  </button>
+      <button class="button-card-edit" (click)="modifyUser(user)">  Editer  </button>
+    </div>
+</div>
