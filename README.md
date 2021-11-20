@@ -24,4 +24,4 @@ To modify :
 
 
 
-
+Set-up : use npm install in back-end repository and in front-end repository use a local port 4200 in my case
